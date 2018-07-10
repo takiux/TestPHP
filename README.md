@@ -3,6 +3,7 @@
 2 found in the manager class : 
   - in getAnnualInterestRates function : unnecessary semicolon in the array.
   - the error function should be public ( like in the interface ).
+  
 1 found in index.php :
   - a typo in the function call.
 
