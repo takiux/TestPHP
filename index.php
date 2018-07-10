@@ -3,7 +3,7 @@ require 'Manager.php';
 use TestManager\Manager;
     
 $manager = new manager;
-// echo $manager->getAnnualInterestRateByCountry([1, 2]); // Akram : fixed typo
+// echo $manager->getAnnualInterestRateByCountry([1, 2]); //  fixed typo
 try{
 
     $countries = $manager->getCountries();

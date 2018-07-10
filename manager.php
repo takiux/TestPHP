@@ -16,8 +16,6 @@ interface TestInterface {
      */
     
     public function error(int $code, string $error): string; 
-    public function getAnnualInterestRateByCountry(int $countryIds): string;
-    public function calculateInterest(int $countryId, int $amount, int $duration): array;
 }
 
 /**
@@ -31,6 +29,7 @@ class Manager implements TestInterface
     protected $countries;
 
     public function __construct(){
+        // initialize the database connectio upon the instantiation
         $this->country = new Country('localhost', 'techBanx', 'root', '', 'UTF-8');
     }
 
@@ -86,18 +85,26 @@ class Manager implements TestInterface
     
     /**
 	 * calculateInterest
+     * 
+     * Returns the result in an array format so it can be used byt other functions, 
+     * 
      * @param int $countryId
      * @param float @amount
      * @param int $duration
      * 
-     * @return array
+     * @return array 
      */
-    public function calculateInterest($countryId, $amount, $duration): array{
+    public function calculateInterest(int $countryId, float $amount, int $duration): array{
         try{
+            // fetch the country from the database
             $country = $this->country->getCountry($countryId);
 
+            // calculate the interest
             $interest = ($amount * $country['annualInterestRate'] / 100) / $duration;
+
             $result = [$country['name'] => $amount + $interest];
+
+            // return the result
             return $result;
         }
         catch (Exception $e) 

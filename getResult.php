@@ -1,12 +1,21 @@
 <?php
 
+// this is put in a seperate file for the lack of a router.
+
 require 'Manager.php';
 use TestManager\Manager;
 
 $manager = new manager;
 
 try{
-    $result = $manager->calculateInterest($_POST['country'], $_POST['amount'], $_POST['duration']);
+
+    $countryId = $_POST['country'];
+    $amount = $_POST['amount'];
+    $duration = $_POST['duration'];
+
+
+    $result = $manager->calculateInterest($countryId, $amount, $duration);
+
     echo json_encode($result);
 }
 catch (Exception $e) 

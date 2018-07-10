@@ -1,11 +1,4 @@
--- phpMyAdmin SQL Dump
--- version 4.7.9
--- https://www.phpmyadmin.net/
---
--- Hôte : 127.0.0.1:3306
--- Généré le :  mar. 10 juil. 2018 à 19:05
--- Version du serveur :  5.7.21
--- Version de PHP :  7.2.4
+\
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,14 +12,9 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données :  `techbanx`
+-- Database :  `techbanx`
 --
 
--- --------------------------------------------------------
-
---
--- Structure de la table `countries`
---
 
 DROP TABLE IF EXISTS `countries`;
 CREATE TABLE IF NOT EXISTS `countries` (
@@ -35,10 +23,6 @@ CREATE TABLE IF NOT EXISTS `countries` (
   `annualInterestRate` float NOT NULL,
   PRIMARY KEY (`idCountry`)
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='Countries table';
-
---
--- Déchargement des données de la table `countries`
---
 
 INSERT INTO `countries` (`idCountry`, `name`, `annualInterestRate`) VALUES
 (1, 'Canada', 10),

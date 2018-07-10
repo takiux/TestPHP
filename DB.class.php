@@ -19,6 +19,14 @@ class Country
         }        
     }
 
+    /**
+	 * getCountries
+     * 
+     * Returns a list of all countries with thier interest rate
+     * 
+     * @return array
+     */
+
     public function getCountries(): array
     {
         $sth = $this->pdo->prepare("SELECT * FROM countries");
@@ -26,10 +34,20 @@ class Country
 	    return $sth->fetchAll();
     }
 
-    public function getCountry($id): array
+    /**
+	 * getCountries
+     * 
+     * Returns a specific country with its interest rate
+     * @param $id
+     * @return array
+     */
+
+    public function getCountry(int $id): array
     {
-        $sth = $this->pdo->prepare("SELECT * FROM countries WHERE idCountry=$id");
-	    $sth->execute();
+        $sth = $this->pdo->prepare("SELECT * FROM countries WHERE idCountry=:id");
+        $sth->bindParam(":id", $id);
+        $sth->execute();
+        
 	    return $sth->fetch();
     }
 }
